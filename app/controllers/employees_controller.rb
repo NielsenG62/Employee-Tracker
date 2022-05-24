@@ -10,6 +10,7 @@ class EmployeesController < ApplicationController
     @division = Division.find(params[:division_id])
     @employee = @division.employees.new(employee_params)
     if @employee.save
+      flash[:notice] = "Employee successfully added!"
       redirect_to division_path(@division)
     else
       render :new
