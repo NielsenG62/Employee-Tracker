@@ -3,5 +3,7 @@
 <%= form_for [@division, @employee] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
+  <%= f.label :projects %>
+  <%= f.text_field :projects %>
   <%= f.submit %>
 <% end %>

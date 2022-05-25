@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Employee.destroy_all
+hr_div = Division.create({:name => "The division of labor and other shit I don't care about"})
+
+50.times do |index|
+  Employee.create!(name: Faker::Name.name, division_id: hr_div.id)
+end
+
+p "Created #{Employee.count} employees"

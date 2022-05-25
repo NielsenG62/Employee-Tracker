@@ -15,10 +15,11 @@
 <% end %>
 
 <p><%= link_to "Add an employee", new_division_employee_path(@division) %></p>
+<p><%= link_to "Add a project", new_division_project_path(@division) %></p>
 
 <p><%= link_to "Edit", edit_division_path(@division) %></p>
 <p><%= link_to "Delete", division_path(@division),
-                         :data => {:confirm => "you sure?",
-                                   :method => "delete"} %></p>
+                        :data => {:confirm => "you sure?",
+                                  :method => "delete"} %></p>
 
 <p><%= link_to "Return to divisions", divisions_path %> </p>

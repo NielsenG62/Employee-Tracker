@@ -3,12 +3,14 @@ class EmployeesController < ApplicationController
   def new
     @division = Division.find(params[:division_id])
     @employee = @division.employees.new
+    @projects = @employee.projects
     render :new
   end
 
   def create
     @division = Division.find(params[:division_id])
     @employee = @division.employees.new(employee_params)
+    @projects = @employee.projects
     if @employee.save
       flash[:notice] = "Employee successfully added!"
       redirect_to division_path(@division)
@@ -20,12 +22,14 @@ class EmployeesController < ApplicationController
   def show
     @division = Division.find(params[:division_id])
     @employee = Employee.find(params[:id])
+    @projects = @employee.projects
     render :show
   end
 
   def edit
     @division = Division.find(params[:division_id])
     @employee = Employee.find(params[:id])
+    @projects = @employee.projects
     render :edit
   end
 
