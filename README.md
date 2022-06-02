@@ -2,6 +2,6 @@
 
 ### Stuff
 
-psql
-\c employee_tracker_development
-UPDATE users SET admin = true WHERE id = ?;
+- _psql_
+- _\c employee_tracker_development_
+- _UPDATE users SET admin = true WHERE id = ?;_
