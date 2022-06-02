@@ -1,5 +1,10 @@
 class EmployeesController < ApplicationController
 
+  before_action :authorize, except: [:show]
+  before_action :authorize, :only => [:add, :edit, :update, :destroy] do
+    redirect_to division_employees_path unless current_user && current_user.admin?
+  end
+
   def new
     @division = Division.find(params[:division_id])
     @employee = @division.employees.new

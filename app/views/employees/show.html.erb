@@ -4,10 +4,11 @@
 
 </h3>
 
-
-<p><%= link_to "Edit Employee", edit_division_employee_path(@division, @employee) %></p>
-<p><%= link_to "Delete Employee", division_employee_path(@division, @employee),
-                        :data => {:confirm => "Are you sure?",
-                                       :method => "delete"} %></p>
+<% if current_user && current_user.admin? %>
+  <p><%= link_to "Edit Employee", edit_division_employee_path(@division, @employee) %></p>
+  <p><%= link_to "Delete Employee", division_employee_path(@division, @employee),
+                                  :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %></p>
+<% end %>
 
 <p><%= link_to "Return to divison", division_path(@division) %></p>

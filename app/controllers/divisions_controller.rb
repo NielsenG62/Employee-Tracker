@@ -1,5 +1,10 @@
 class DivisionsController < ApplicationController
 
+  before_action :authorize, except: [:index]
+  before_action :authorize, :only => [:destroy, :new] do
+    redirect_to divisions_path unless current_user && current_user.admin?
+  end
+
   def index
     @divisions = Division.all
     render :index

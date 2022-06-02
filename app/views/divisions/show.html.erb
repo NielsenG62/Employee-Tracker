@@ -14,6 +14,7 @@
   <p>No employees are listed for this division</p>
 <% end %>
 
+<% if current_user && current_user.admin? %>
 <p><%= link_to "Add an employee", new_division_employee_path(@division) %></p>
 <p><%= link_to "Add a project", new_division_project_path(@division) %></p>
 
@@ -21,5 +22,6 @@
 <p><%= link_to "Delete", division_path(@division),
                         :data => {:confirm => "you sure?",
                                   :method => "delete"} %></p>
+<% end %>
 
 <p><%= link_to "Return to divisions", divisions_path %> </p>
